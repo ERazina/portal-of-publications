@@ -1,0 +1,30 @@
+<h1>Список публикаций</h1>
+	<table border="1">
+		<tr>
+			<th>Тип</th>
+			<th>Заголовок</th>
+			<th>Дата добавления</th>
+			<th colspan="2">Управление</th>
+		</tr>
+		<?foreach($publications as $publication):?>
+			<tr rel="<? echo $publication['id'];?>">
+				<td><? switch($publication['type']):
+						case 'ad': ?>
+						Объявление
+						<? break; ?>
+						<? case  'news': ?>
+						Новость
+						<? break; ?>
+						<? case  'article': ?>
+						Статья
+						<? break; ?>
+						<? endswitch; ?>
+				</td>
+				<td><a href="/<?=BASE?>publication/show/<? echo $publication['id'];?>/<? echo  $publication['type'];?>"><? echo $publication['heading'];?></a></td>
+				<td><? echo $publication['date'];?></td>
+				<td><a href="/<?=BASE?>publication/update/<? echo $publication['id'];?>/<? echo  $publication['type'];?>">Редактировать</a></td>
+				<td><a href="/<?=BASE?>publication/delete/<? echo $publication['id'];?>/<? echo  $publication['type'];?>">Удалить</a></td>
+			</tr>
+		<?endforeach?>
+	</table>
+<button style="margin-top:10px"><a href="/<?=BASE?>publication/add/" style="text-decoration: none;color:black">Добавить новую запись</a></button>

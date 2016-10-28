@@ -1,0 +1,8 @@
+<h2>Добавить объявление</h2>
+<form method="post" action="/<?=BASE?>publication/add/">
+    <p><b>Заголовок</b> (до 100 символов):</p><textarea type="textarea" rows="1" cols="45" name="heading" maxlength="100" required></textarea>
+    <p><b>Текст</b> (до 1 000 символов):</p><textarea rows="10" cols="45" name="text" maxlength="1000" required></textarea>
+<!--    <p>Дата публикации</p><input type="date" name="date">-->
+    <p><b>Дата окончания объявления:</b></p><input type="date" value="<?php echo date('Y-m-d'); ?>" name="expirationdate">
+    <p><input type="submit" value="Сохранить"></p>
+</form>
